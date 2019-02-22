@@ -1,4 +1,2 @@
-From python:3.7
-COPY . .
-RUN pip install -r requirements.txt
-CMD ["python", "./my_script.py"]
+From httpd:2.4.38-alpine
+COPY index.html /usr/local/apache2/htdocs/
