@@ -1,0 +1,9 @@
+# user script to install docker on Amazon Linux
+# from https://docs.aws.amazon.com/AmazonECS/latest/developerguide/docker-basics.html#install_docker
+sudo yum update -y
+sudo amazon-linux-extras install -y docker
+sudo usermod -a -G docker ec2-user
+sudo systemctl enable docker
+sudo service docker start
+docker run -d --name watchtower --restart always -v /var/run/docker.sock:/var/run/docker.sock v2tec/watchtower
+docker run -dit --name easy-cd-tutorial -p 80:80 --restart always kpoland/easy-cd-tutorial
